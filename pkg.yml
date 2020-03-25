@@ -1,0 +1,22 @@
+---
+# this script will add a user into system
+# place user in group wheel
+# place user public key in .ssh directory
+# usage: ansible-playbook users.yml --connection=local
+
+- hosts: all
+  gather_facts: yes
+  become: yes
+
+  tasks:
+    - name: Installing some required pkgs.
+      apt: 
+        name: "{{ item }}"
+        update_cache: yes
+      with_items:
+        - vim
+        - git
+        - ansible
+      tags: useful_pkgs
+
+
