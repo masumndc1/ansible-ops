@@ -9,8 +9,6 @@
   become: yes
   vars:
     - user_name: masum
-    - user_key: |
-        ssh-rsa pgVVW/x1PCNZalt masum@nobody
 
   tasks:
     - name: Adding users to hosts
@@ -22,7 +20,7 @@
       authorized_key:
         user: "{{ user_name }}"
         state: present
-        key: "{{ user_key }}"
+        key: "{{ lookup('file', '/home/{{ user_name }}/.ssh/id_rsa.pub') }}"
         manage_dir: yes
 
     - name: Giving a user admin right without asking for password
