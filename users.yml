@@ -2,7 +2,7 @@
 # this script will add a user into system
 # place user in group wheel
 # place user public key in .ssh directory
-# usage: ansible-playbook users.yml --connection=local
+# usage: ansible-playbook users.yml 
 
 - hosts: all
   gather_facts: no
