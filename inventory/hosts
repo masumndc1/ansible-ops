@@ -7,7 +7,6 @@ jumphosts
 elasticSiem
 
 [ids]
-vagrant
 wazuh-server
 wazuh-agent
 
