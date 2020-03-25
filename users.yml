@@ -4,13 +4,13 @@
 # place user public key in .ssh directory
 # usage: ansible-playbook users.yml --connection=local
 
-- hosts: localhost
+- hosts: all
   gather_facts: no
   become: yes
   vars:
-    - user_name: <your user name here>
+    - user_name: masum
     - user_key: |
-        ssh-rsa Io/tJ+qdfY3Bd+i8C1 
+        ssh-rsa pgVVW/x1PCNZalt masum@nobody
 
   tasks:
     - name: Adding users to hosts
