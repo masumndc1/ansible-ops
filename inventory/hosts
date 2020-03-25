@@ -1,7 +1,7 @@
 [all:children]
-localhosts
 siem
 ids
+jumphosts
 
 [siem]
 elasticSiem
@@ -11,8 +11,5 @@ vagrant
 wazuh-server
 wazuh-agent
 
-[localhosts]
-localhost
-
-[localhosts:vars]
-ansible_connection=local
+[jumphosts]
+jumphost

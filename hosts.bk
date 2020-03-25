@@ -1,0 +1,17 @@
+127.0.0.1	localhost
+127.0.1.1	nobody
+
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+
+# added by me
+192.168.2.30 r320
+192.168.2.40 palo80
+192.168.2.137 elasticSiem
+192.168.2.141 jumphost 
+192.168.2.142 wazuh-agent
+192.168.2.142 wazuh-server
