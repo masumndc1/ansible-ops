@@ -7,16 +7,32 @@
 - hosts: all
   gather_facts: yes
   become: yes
+  ignore_errors: yes
 
   tasks:
-    - name: Installing some required pkgs.
+    - name: Installing some required pkgs in debian based distribution.
       apt: 
         name: "{{ item }}"
+        state: latest
         update_cache: yes
       with_items:
         - vim
         - git
         - ansible
-      tags: useful_pkgs
+      when: ansible_distribution == 'Ubuntu'
+
+    - name: Installing some required pkgs in rpm based distribution.
+      yum: 
+      # name: [ 'vim', 'git', 'ansible', 'net-tools' ] 
+        name: "{{ item }}"
+        state: latest
+        update_cache: yes
+      with_items:
+        - epel-release
+        - vim
+        - git
+        - ansible
+        - net-tools
+      when: ansible_distribution == 'CentOS'
 
 
